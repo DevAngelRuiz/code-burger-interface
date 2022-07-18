@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Navigate } from 'react-router-dom'
+import { Route, Navigate, Routes } from 'react-router-dom'
 
 import PropTypes from 'prop-types'
 
@@ -8,7 +8,7 @@ function PrivateRoute ({ element, ...rest }) {
   if (!user) {
     return <Navigate to="/login"/>
   }
-  return <Route {...rest} element={element} />
+  return <Routes><Route {...rest} element={element} /></Routes>
 }
 
 export default PrivateRoute

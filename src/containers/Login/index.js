@@ -1,6 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form' // usando essa biblioteca (react hook form) para facilitar a utilização de formularios, e deixar mais rapida a aplicação sem usar hooks...
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -22,7 +22,9 @@ import {
 } from './styles'
 
 function Login () {
-  const { putUserData, userData } = useUser()
+  const history = useNavigate()
+
+  const { putUserData } = useUser()
 
   const schema = Yup.object().shape({
     email: Yup.string().email('Digite um e-mail válido').required('O e-mail é obrigatório'),
@@ -46,7 +48,7 @@ function Login () {
       }
     )
     putUserData(data)
-    console.log(userData)
+    history.push('/')
   }
   return (
     <Container>

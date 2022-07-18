@@ -3,6 +3,7 @@ import { Routes, Route, BrowserRouter as Router } from 'react-router-dom'
 
 import Home from '../containers/Home'
 import Login from '../containers/Login'
+import Products from '../containers/Products'
 import Register from '../containers/Register'
 import PrivateRoute from './private-route'
 
@@ -12,9 +13,14 @@ function MyRoutes () {
             <Routes>
                 <Route element={<Login />} path="/login" />
                 <Route element={<Register />} path="/cadastro" />
-                <Route exact path='/' element={<PrivateRoute />}>
-                    <Route exact path='/' element={<Home />} />
+
+                <Route path="*" element={<Home />}>
+                    <Route path="*" element={<PrivateRoute />} />
                 </Route>
+                <Route path="/produtos" element={<Products />}>
+                    <Route path="/produtos" element={<PrivateRoute />} />
+                </Route>
+
                 {/* <PrivateRoute element={<Home />} path="/" /> */}
 
             </Routes>
