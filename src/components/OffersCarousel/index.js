@@ -12,7 +12,7 @@ import {
   Button
 } from './styles'
 // pra suar uma api, precisa usar async await. Porém no useEffect não pode ser direto, criar uma função dentro com async await.
-function OffersCarousel () {
+export function OffersCarousel () {
   const [offers, setOffers] = useState([])
   useEffect(() => {
     async function loadOffers () {
@@ -53,5 +53,3 @@ function OffersCarousel () {
   </Container>
   )
 }
-
-export default OffersCarousel

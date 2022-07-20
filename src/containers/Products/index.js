@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react'
 
 import ProductsLogo from '../../assets/products-logo.svg'
-import CardProduct from '../../components/CardProduct'
+import { CardProduct } from '../../components'
 import api from '../../services/api'
 import formatCurrency from '../../utils/formatCurrency'
 import { Container, ProductsImg, CategoryButton, CategoriesMenu, ProductsContainer } from './styles'
 
-function Products () {
+export function Products () {
   const [categories, setCategories] = useState([])
   const [products, setProducts] = useState([])
+  const [filteredProducts, setFilteredProducts] = useState([]) // usa-se muito o useState para poder trocar algo em tempo real
   const [activeCategory, setActiveCategory] = useState(0)
 
   useEffect(() => {
@@ -31,6 +32,16 @@ function Products () {
     loadProducts()
     loadCategories()
   }, [])
+
+  useEffect(() => {
+    if (activeCategory === 0) {
+      setFilteredProducts(products) // mostrando todos os produtos na opção 'todos' do menu.
+    } else {
+      const newFilteredProducts = products.filter(product => product.category_id === activeCategory)
+      setFilteredProducts(newFilteredProducts) // mostra produtos por categoria
+    }
+  }, [activeCategory, products])
+
   return (
   <Container>
     <ProductsImg src={ProductsLogo} alt="products-logo"/>
@@ -43,7 +54,7 @@ function Products () {
     ))}
     </CategoriesMenu>
     <ProductsContainer>
-        { products && products.map(product => (
+        { filteredProducts && products.map(product => (
             <CardProduct key={product.id} product={product}/>
         ))}
 
@@ -52,5 +63,3 @@ function Products () {
   </Container>
   )
 }
-
-export default Products
