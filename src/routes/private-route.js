@@ -6,9 +6,12 @@ import PropTypes from 'prop-types'
 function PrivateRoute ({ element, ...rest }) {
   const user = localStorage.getItem('codeburger:userData')
   if (!user) {
-    return (<Navigate to="/login"/>)
+    return <Navigate to={'/login'}/>
   }
-  return (<Route {...rest} element={element} />)
+  return (
+            <Route {...rest} element={element} />
+
+  )
 }
 
 export default PrivateRoute

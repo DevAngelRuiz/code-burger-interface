@@ -57,6 +57,14 @@ font-weight: 700;
 font-size: 18px;
 line-height: 100%;
 text-align: center;
+cursor: pointer;
+
 color: #FFFFFF;
+&:hover{
+        opacity: 0.8;
+    }
+    &:active{
+        opacity: 0.6;
+    }
 
 `

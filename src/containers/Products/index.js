@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 import ProductsLogo from '../../assets/products-logo.svg'
-import { CardProduct } from '../../components'
+import { CardProduct, Header } from '../../components'
 import api from '../../services/api'
 import formatCurrency from '../../utils/formatCurrency'
 import { Container, ProductsImg, CategoryButton, CategoriesMenu, ProductsContainer } from './styles'
@@ -43,7 +43,9 @@ export function Products () {
   }, [activeCategory, products])
 
   return (
+
   <Container>
+  <Header/>
     <ProductsImg src={ProductsLogo} alt="products-logo"/>
     <CategoriesMenu>
     { categories && categories.map(category => (
@@ -61,5 +63,6 @@ export function Products () {
     </ProductsContainer>
 
   </Container>
+
   )
 }

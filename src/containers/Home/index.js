@@ -1,7 +1,7 @@
 import React from 'react'
 
 import HomeLogo from '../../assets/logo-home.svg'
-import { CategoryCarousel, Header, OffersCarousel } from '../../components'
+import { CategoryCarousel, OffersCarousel, Header } from '../../components'
 import { Container, HomeImg } from './styles'
 export function Home () {
   return (
