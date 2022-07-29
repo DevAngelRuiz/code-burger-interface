@@ -22,7 +22,7 @@ import {
 } from './styles'
 
 export function Login () {
-  const history = useNavigate()
+  const navigate = useNavigate()
 
   const { putUserData } = useUser()
 
@@ -48,7 +48,11 @@ export function Login () {
       }
     )
     putUserData(data)
-    history.push('/')
+    setTimeout(() => {
+      if (data.admin) {
+        navigate('/pedidos')
+      } else { navigate('/') }
+    }, 1000)
   }
   return (
     <Container>
