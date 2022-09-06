@@ -26,8 +26,9 @@ function MyRoutes () {
                 <Route element={<Admin/>} path="/pedidos">
                     <Route path="/pedidos" element={<PrivateRoute />} />
                 </Route>
-                {/* <PrivateRoute element={<Home />} path="/" /> */}
 
+                {/* <PrivateRoute element={<Home />} path="/" /> */}
+{/* <PrivateRoute path='/' element={<Home />}/> */}
             </Routes>
 
         </Router>
