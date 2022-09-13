@@ -20,7 +20,7 @@ export const ItemContainer = styled.div`
 display: flex;
 align-items: center;
 height: 60px;
-background: #565656; 
+background: ${props => props.isActive ? '#565656' : 'none'}; 
 border-radius: 3px; 
 margin: 8px;
 
@@ -40,3 +40,11 @@ text-decoration: none;
 margin-left: 8px;
 
 `
+
+export const LabelLogout = styled.p`
+font-size: 18px;
+font-weight: normal;
+font-style: normal; 
+line-height: 19px;
+color: #ffffff;
+margin-left: 8px;`

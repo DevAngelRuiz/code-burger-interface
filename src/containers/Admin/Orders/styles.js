@@ -5,7 +5,8 @@ import styled from 'styled-components'
 export const Container = styled.div`
 background: #efefef;
 min-height: 100vh;
-padding: 20px;
+min-width: 70%;
+margin-right: 50px;
 
 `
 export const ProductsImg = styled.img`
