@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+// import { Navigate } from 'react-router-dom'
 
 import CancelIcon from '@mui/icons-material/Cancel'
 import VerifiedIcon from '@mui/icons-material/Verified'
@@ -16,6 +17,7 @@ import { Container, Img, EditIconStyle } from './styles'
 
 function ListOfProducts () {
   const [products, setProducts] = useState([])
+  //   const navigate = Navigate()
   useEffect(() => {
     async function loadOrders () {
       const { data } = await api.get('products')
@@ -32,6 +34,10 @@ function ListOfProducts () {
     }
     return <CancelIcon/>
   }
+
+  //   function EditProduct(product) {
+  //     navigate.push(paths.EditProduct, { product })
+  // }
   return (
     <Container>
     <TableContainer component={Paper}>
@@ -46,7 +52,7 @@ function ListOfProducts () {
         </TableRow>
       </TableHead>
       <TableBody>
-        {products.map((product) => (
+        {products && products.map((product) => (
           <TableRow
             key={product.id}
             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -57,7 +63,8 @@ function ListOfProducts () {
             <TableCell>{formatCurrency(product.price)}</TableCell>
             <TableCell align= 'center'>{isOffer(product.offer)}</TableCell>
             <TableCell><Img src={product.url} alt='imagem-produto'/></TableCell>
-            <TableCell><EditIconStyle/></TableCell>
+            <TableCell>
+                <EditIconStyle/></TableCell>
           </TableRow>
         ))}
       </TableBody>

@@ -16,12 +16,13 @@ export function Admin () {
         <Container>
             <SideMenuAdmin />
             <ContainerItems>
-                <Orders />
-                <ListOfProducts />
+                {/* <Orders />
+                <ListOfProducts /> */}
                 <NewProduct/>
-
-                {/* {path === paths.Order && <Orders/>}
-                {path === paths.ProductsList && <ListOfProducts/>} */}
+                {/* {path === paths.Order && <Orders />}
+                {path === paths.ProductsList && <ListOfProducts />}
+                {path === paths.NewProduct && <NewProduct />} */}
+                {/* {path === paths.EditProduct && <EditProduct/>} */}
 
             </ContainerItems>
 
