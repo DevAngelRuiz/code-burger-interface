@@ -56,7 +56,7 @@ export function Products () {
     ))}
     </CategoriesMenu>
     <ProductsContainer>
-        { filteredProducts && products.map(product => (
+        { filteredProducts && filteredProducts.map(product => (
             <CardProduct key={product.id} product={product}/>
         ))}
 
