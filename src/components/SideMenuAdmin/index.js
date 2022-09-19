@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import ExitToAppIcon from '@mui/icons-material/ExitToApp'
 
@@ -8,6 +9,11 @@ import { Container, ItemContainer, ListLink, LabelLogout } from './styles'
 
 export function SideMenuAdmin () {
   const { logout } = useUser()
+  const navigate = useNavigate()
+  const logoutUser = () => {
+    logout()
+    navigate('/login')
+  }
   return (
         <Container>
             {/* linha de separação (design): */}
@@ -21,7 +27,7 @@ export function SideMenuAdmin () {
             <hr></hr>
             <ItemContainer style={{ position: 'absolute', bottom: '30px' }}>
             <ExitToAppIcon className="icon"/>
-            <LabelLogout to='/login' onClick={logout} >Sair</LabelLogout>
+            <LabelLogout to='/login' onClick={logoutUser} >Sair</LabelLogout>
             </ItemContainer>
 
         </Container>

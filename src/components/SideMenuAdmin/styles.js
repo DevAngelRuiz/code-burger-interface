@@ -47,4 +47,5 @@ font-weight: normal;
 font-style: normal; 
 line-height: 19px;
 color: #ffffff;
-margin-left: 8px;`
+margin-left: 8px;
+cursor: pointer;`
