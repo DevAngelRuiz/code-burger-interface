@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-// import { Navigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import CancelIcon from '@mui/icons-material/Cancel'
 import VerifiedIcon from '@mui/icons-material/Verified'
@@ -11,13 +11,14 @@ import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 
+import paths from '../../../constants/paths'
 import api from '../../../services/api'
 import formatCurrency from '../../../utils/formatCurrency'
 import { Container, Img, EditIconStyle } from './styles'
 
 function ListOfProducts () {
   const [products, setProducts] = useState([])
-  //   const navigate = Navigate()
+  const { navigate } = useNavigate()
   useEffect(() => {
     async function loadOrders () {
       const { data } = await api.get('products')
@@ -35,9 +36,9 @@ function ListOfProducts () {
     return <CancelIcon/>
   }
 
-  //   function EditProduct(product) {
-  //     navigate.push(paths.EditProduct, { product })
-  // }
+  function editProduct (product) {
+    navigate(paths.EditProduct, { product })
+  }
   return (
     <Container>
     <TableContainer component={Paper}>
@@ -64,7 +65,7 @@ function ListOfProducts () {
             <TableCell align= 'center'>{isOffer(product.offer)}</TableCell>
             <TableCell><Img src={product.url} alt='imagem-produto'/></TableCell>
             <TableCell>
-                <EditIconStyle/></TableCell>
+                <EditIconStyle onClick={() => editProduct(product)} /></TableCell>
           </TableRow>
         ))}
       </TableBody>

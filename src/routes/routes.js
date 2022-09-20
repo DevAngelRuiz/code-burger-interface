@@ -53,6 +53,13 @@ function MyRoutes () {
                         </PrivateRoute>
                     } />
 
+                <Route path={paths.EditProduct} element=
+                    {
+                        <PrivateRoute>
+                            <Admin />
+                        </PrivateRoute>
+                    } />
+
             </Routes>
 
         </Router>
