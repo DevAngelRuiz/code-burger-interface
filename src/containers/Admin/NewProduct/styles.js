@@ -17,6 +17,7 @@ form {
         padding: 30px;
         display: flex;
         flex-direction: column;
+        gap: 25px;
        
 }
 
