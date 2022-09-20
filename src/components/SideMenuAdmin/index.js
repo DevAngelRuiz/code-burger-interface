@@ -25,7 +25,7 @@ export function SideMenuAdmin () {
             </ItemContainer>
             ))}
             <hr></hr>
-            <ItemContainer style={{ position: 'absolute', bottom: '30px' }}>
+            <ItemContainer style={{ position: 'fixed', bottom: '30px' }}>
             <ExitToAppIcon className="icon"/>
             <LabelLogout to='/login' onClick={logoutUser} >Sair</LabelLogout>
             </ItemContainer>
