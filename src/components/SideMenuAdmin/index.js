@@ -7,7 +7,7 @@ import { useUser } from '../../hooks/UserContext'
 import listLinks from './menu-list'
 import { Container, ItemContainer, ListLink, LabelLogout } from './styles'
 
-export function SideMenuAdmin () {
+export function SideMenuAdmin ({ pathname }) {
   const { logout } = useUser()
   const navigate = useNavigate()
   const logoutUser = () => {
@@ -19,7 +19,7 @@ export function SideMenuAdmin () {
             {/* linha de separação (design): */}
             <hr></hr>
             {listLinks.map(item => (
-            <ItemContainer key={item.id} isActive={true}>
+            <ItemContainer key={item.id} isActive={item.link === pathname}>
 <item.icon className="icon"/>
                 <ListLink to={item.link}>  {item.label}</ListLink>
             </ItemContainer>

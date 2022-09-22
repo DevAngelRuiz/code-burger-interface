@@ -1,4 +1,5 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom'
 
 import PropTypes from 'prop-types'
 
@@ -11,19 +12,16 @@ import Orders from './Orders'
 import { Container, ContainerItems } from './styles'
 
 export function Admin () {
-  // { match: { path } }
-  // nao ta chegando nada
+  const { pathname } = useLocation()
+
   return (
         <Container>
-            <SideMenuAdmin />
+            <SideMenuAdmin pathname={pathname}/>
             <ContainerItems>
-                <Orders />
-                <ListOfProducts />
-                {/* <EditProduct/> */}
-                {/* {path === paths.Order && <Orders />}
-                {path === paths.ProductsList && <ListOfProducts />}
-                {path === paths.NewProduct && <NewProduct />} */}
-                {/* {path === paths.EditProduct && <EditProduct/>} */}
+                {pathname === paths.Order && <Orders />}
+                {pathname === paths.ProductsList && <ListOfProducts />}
+                {pathname === paths.NewProduct && <NewProduct />}
+                {pathname === paths.EditProduct && <EditProduct />}
 
             </ContainerItems>
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useForm, Controller } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import ReactSelect from 'react-select'
 import { toast } from 'react-toastify'
 
@@ -16,7 +16,9 @@ import { Container, Input, Label, ButtonStyles, LabelUpload, ContainerOffer } fr
 function EditProduct () {
   const [fileName, setFileName] = useState(null)
   const [categories, setCategories] = useState([])
-  const { navigate, location: { state: { product } } } = useNavigate()
+  const navigate = useNavigate()
+  const { state: { product } } = useLocation()
+  //   //   const { navigate, location: { state: { product } } } = useNavigate()
 
   const schema = Yup.object().shape({
     name: Yup.string().required('Digite o nome do produto'),

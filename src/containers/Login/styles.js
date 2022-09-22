@@ -19,7 +19,7 @@ export const ContainerItens = styled.div`
     background: #373737;
     border-radius: 0 10px 10px 0;
     height: 70%;
-    padding: 25px 75px;
+    padding: 5px 75px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -30,12 +30,15 @@ h1{
     font-size: 24px;
     line-height: 28px;
     color: #FFFFFF;
-    padding: 119px 0 39px 0;
+    padding: 50px 0 39px 0;
     text-align: center;
 }
 form{
     display: flex;
     flex-direction: column;
+}
+img{
+    margin-top: 15px;
 }
 
 

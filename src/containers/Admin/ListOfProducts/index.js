@@ -18,7 +18,7 @@ import { Container, Img, EditIconStyle } from './styles'
 
 function ListOfProducts () {
   const [products, setProducts] = useState([])
-  const { navigate } = useNavigate()
+  const navigate = useNavigate()
   useEffect(() => {
     async function loadOrders () {
       const { data } = await api.get('products')

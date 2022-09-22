@@ -29,11 +29,13 @@ export const Body = styled.div`
 display: grid;
 grid-template-columns: repeat(5, 1fr);
 width: max-content;
-grid-gap: 10px 15px;
+grid-gap: 15px 15px;
 padding: 10px;
+
 img{
     border-radius: 10px;
-    width: 130px;
+    width: 120px;
+    height: 120px;
 }
 p{
     font-size: 17px;
