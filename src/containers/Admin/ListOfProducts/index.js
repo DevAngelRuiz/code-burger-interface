@@ -37,7 +37,7 @@ function ListOfProducts () {
   }
 
   function editProduct (product) {
-    navigate(paths.EditProduct, { product })
+    navigate(paths.EditProduct, { state: { product } })
   }
   return (
     <Container>
